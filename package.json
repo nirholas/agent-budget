@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "A spending limit the venue itself enforces: an autonomous agent may swap on this pool only within a budget its principal signed, and the pool refuses the swap that would exceed it.",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/nirholas/agent-budget.git"
