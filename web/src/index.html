@@ -158,6 +158,40 @@ forge script script/Deploy.s.sol --rpc-url $RPC_URL --broadcast --verify</code><
       </p>
     </div>
   </section>
+
+  <section class="shell">
+    <h2 id="try">Try it</h2>
+    <p>
+      This is the hook running, not a picture of it. Connect a wallet on a chain it is deployed to, or bring the whole
+      stack up locally in one command and use it with no funds and no wallet risk at all.
+    </p>
+    <div class="demo" data-demo="agent-budget">
+      <div class="panel panel--empty">
+        <p>Loading the demo… if this does not change, JavaScript is blocked and the demo cannot run.</p>
+      </div>
+    </div>
+    <details class="raw">
+      <summary>Run the whole thing locally</summary>
+      <pre><code>git clone --recurse-submodules https://github.com/nirholas/agent-budget
+cd agent-budget
+
+anvil &amp;
+forge script script/DeployLocal.s.sol --rpc-url http://127.0.0.1:8545 --broadcast \
+  --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+
+node web/build.mjs &amp;&amp; npx serve web/dist</code></pre>
+      <p class="muted">
+        The deploy script writes <code>web/local.json</code> itself and the build merges it, so the page points at the
+        chain you just created without you editing anything. Point a wallet at
+        <code>http://127.0.0.1:8545</code> and every button on this page works.
+      </p>
+      <p class="muted">
+        Anvil's first account is pre-funded and its key is public by design. Never use it anywhere real.
+      </p>
+    </details>
+  </section>
+  <script type="application/json" id="deployments">{"chains":{},"errors":[{"type":"error","name":"AuthorizationRequired","inputs":[]},{"type":"error","name":"BadAgentSignature","inputs":[]},{"type":"error","name":"BadPrincipalSignature","inputs":[]},{"type":"error","name":"BudgetExceeded","inputs":[{"name":"currency","type":"uint8","internalType":"uint8"},{"name":"cap","type":"uint128","internalType":"uint128"},{"name":"wouldSpend","type":"uint256","internalType":"uint256"}]},{"type":"error","name":"Expired","inputs":[]},{"type":"error","name":"HookNotImplemented","inputs":[]},{"type":"error","name":"InvalidEpochLength","inputs":[]},{"type":"error","name":"InvalidPool","inputs":[]},{"type":"error","name":"InvalidShortString","inputs":[]},{"type":"error","name":"NonceAlreadyUsed","inputs":[{"name":"nonce","type":"uint256","internalType":"uint256"}]},{"type":"error","name":"NotPoolManager","inputs":[]},{"type":"error","name":"Revoked","inputs":[]},{"type":"error","name":"StringTooLong","inputs":[{"name":"str","type":"string","internalType":"string"}]},{"type":"error","name":"WrongPool","inputs":[]}],"demo":{"panel":"delegation","title":"A spending limit the venue enforces","lede":"A principal signs one budget for an agent; the agent signs each swap under it. The pool refuses anything past the cap, so the limit lives in the venue rather than in the agent's own code."}}</script>
+  <script type="module" src="/assets/demo.js"></script>
 </main>
 
 <footer class="foot">
