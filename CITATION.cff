@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+title: "agent-budget"
+abstract: "A spending limit the venue itself enforces: an autonomous agent may swap on this pool only within a budget its principal signed, and the pool refuses the swap that would exceed it."
+license: Apache-2.0
+repository-code: "https://github.com/nirholas/agent-budget"
+url: "https://three.ws"
+authors:
+  - name: three.ws
+    website: "https://three.ws"
